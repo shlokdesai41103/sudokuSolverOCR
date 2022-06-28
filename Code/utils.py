@@ -8,6 +8,36 @@ def preProcess(img):
     threshold = cv2.adaptiveThreshold(blur, 255, 1, 1, 11, 2) #applies adaptive threshold
     return threshold
 
+#reorder points for warp perspective
+def reorder(myPoints):
+    myPoints = myPoints.reshape((4,2))
+    myPointsNew = np.zeros((4,1,2), dtype=np.int32)
+    add = myPoints.sum(1)
+    myPointsNew[0] = myPoints[np.argmin(add)]#lowest value
+    myPointsNew[3] = myPoints[np.argmax(add)]#largest value 
+    diff = np.diff(myPoints, axis=1)
+    myPointsNew[1] = myPoints[np.argmin(diff)]
+    myPointsNew[2] = myPoints[np.argmax(diff)]
+    return myPointsNew
+
+
+#we use the biggestContour function to find the sudoku puzzle. We are assuming that the biggest continuous contour on the page must be the sudoku puzzle itself
+def biggestContour(contours):
+    biggest = np.array([])
+    maxArea = 0
+    for i in contours:
+        area = cv2.contourArea(i)
+        if area > 50:#checking the area of every contour. We do not want to include very small contours as those are just noise
+            peri = cv2.arcLength(i, True)#find contour parameter
+            approx = cv2.approxPolyDP(i, .02*peri, True)#find the number of corners the contour has
+            if area > maxArea and len(approx) == 4:#a sudoku puzzle is a square, and a square has four corners
+                #if a contour has the largest area, and has 4 corners, we know that the contour is the puzzle
+                biggest = approx
+                maxArea = area
+    #finally we will have found the puzzle
+    return biggest, maxArea
+            
+
 
 def stackImages(imgArr, scale):
     rows = len(imgArr)#get number of rows
