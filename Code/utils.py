@@ -1,12 +1,21 @@
 import cv2
 import numpy as np
 from torch import imag, isin
+import tensorflow
+from tensorflow import keras
+from keras import models
+from keras.models import load_model
 
 def preProcess(img):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) #grayscales the image
     blur = cv2.GaussianBlur(gray, (5, 5), 1) #blurs the image
     threshold = cv2.adaptiveThreshold(blur, 255, 1, 1, 11, 2) #applies adaptive threshold
     return threshold
+
+#loading the recognition model
+def initializePredictionModel():
+    model = load_model('OCR Model\Code\myModel.h5')
+    return model
 
 #reorder points for warp perspective
 def reorder(myPoints):
@@ -37,8 +46,54 @@ def biggestContour(contours):
     #finally we will have found the puzzle
     return biggest, maxArea
             
+#spliting the image
+def splitBoxes(img):
+    # (h,w) = img.shape[0], img.shape[1]
+    # centerX, centerY = w // 9, h // 9
+    
+    # boxes = []
+    
+    # for i in range(9):
+    #     for j in range(9):
+    #         box = img[centerY*i:centerY*(i+1), centerX*j:centerX*(j+1)]
+    #         boxes.append(box)
+    
+    rows = np.vsplit(img, 9)
+    boxes = []
+    for r in rows:
+        cols = np.hsplit(r, 9)
+        for box in cols:
+            boxes.append(box)
+    return boxes
 
+#predicting the number in each box
+def getPrediction(boxes, model):
+    result = []
+    for image in boxes:
+        img = np.asarray(image)
+        img = img[4:img.shape[0]-4, 4:img.shape[1]-4]
+        img = cv2.resize(img, (28,28))
+        img = img/255
+        img = img.reshape(1,28,28,1)
+        predictions = model.predict(img)
+        classIndex = np.argmax(predictions,axis=-1)
+        probabilityValue = np.amax(predictions)
+        print(classIndex, probabilityValue)
+        if probabilityValue > .8:
+            result.append(classIndex[0])
+        else:
+            result.append(0)
+    return result
 
+def displayNumbers(img, numbers, color=(0,255,0)):
+    secW = int(img.shape[1]/9)
+    secH = int(img.shape[0]/9)
+    for x in range(9):
+        for y in range(9):
+            if numbers[(y*9)+x] != 0 :
+                cv2.putText(img, str(numbers[(y*9)+x]), (x*secW+int(secW/2)-10, int((y+.8)*secH)), cv2.FONT_HERSHEY_COMPLEX, 2, color, 2, cv2.LINE_AA)
+    return img
+            
 def stackImages(imgArr, scale):
     rows = len(imgArr)#get number of rows
     cols = len(imgArr[0])#get number of columns

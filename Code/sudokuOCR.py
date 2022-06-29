@@ -1,16 +1,17 @@
+print('Setting Up')
+import os
+from turtle import color
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import cv2
 import numpy as np
-from utils import biggestContour
-from utils import preProcess
-from utils import stackImages
-from utils import reorder
+from utils import *
 import matplotlib.pyplot as plt
 
 #get image
-pathImage = "Puzzles\Puzzle2.jpg"
+pathImage = "Puzzles\Puzzle1.jpg"
 imgH = 450
 imgW = 450
-
+model = initializePredictionModel()
 
 
 #preparing image
@@ -33,12 +34,20 @@ if biggest.size != 0:
     pts2 = np.float32([[0,0], [imgW, 0], [0, imgH], [imgW, imgH]])#preparing the points
     matrix = cv2.getPerspectiveTransform(pts1, pts2)
     imgWarpColored = cv2.warpPerspective(img, matrix, (imgW, imgH))
-    imgDetectedDigits = img.copy()
+    imgDetectedDigits = blankImg.copy()
     imgWarpColored = cv2.cvtColor(imgWarpColored, cv2.COLOR_BGR2GRAY)
+
+#split the image and find each digit
+imgSolvedDigits = blankImg.copy()
+boxes = splitBoxes(imgWarpColored)
+numbers = getPrediction(boxes, model)
+imgDetectedDigits = displayNumbers(imgDetectedDigits, numbers, color=(255,0,255))
+
+
 
 #stacking the image
 imgArr = ([img, imgThreshold, imgContours, imgBigContours],
-          [imgWarpColored, img, img, img])
+          [imgWarpColored, imgDetectedDigits, blankImg, blankImg])
 stackedImage = stackImages(imgArr, 1)
 
 plt.imshow(stackedImage, cmap = 'gray', interpolation='bicubic')
