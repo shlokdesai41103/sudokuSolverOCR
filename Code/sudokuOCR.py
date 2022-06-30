@@ -44,11 +44,11 @@ imgSolvedDigits = blankImg.copy()
 boxes = splitBoxes(imgWarpColored)
 numbers = getPrediction(boxes, model)
 imgDetectedDigits = displayNumbers(imgDetectedDigits, numbers, color=(255,0,255))
-numbers = np.asarray(numbers)
-posArray = np.where(numbers > 0, 0, 1)
+numbers = np.asarray(numbers)#turns a list into an array
+posArray = np.where(numbers > 0, 0, 1)#if the value in the array is 0, replace it with a 1, if it is greater than 0 replace it with a 0
 
 #turning the numbers read from image into a 2d array
-board = np.array_split(numbers, 9)
+board = np.array_split(numbers, 9)#splits the 81 element array into a 9*9 2d array
 print(board[0][0])
 try:
     sudokuSolver.startSolving(board)
@@ -59,16 +59,16 @@ flatList = []
 for i in board:
     for j in i:
         flatList.append(j)
-solvedNumbers = flatList*posArray
+solvedNumbers = flatList*posArray#this creates an array excluding the numbers already present on the given puzzle ##this will later allow us to create an overlay of the numbers we solved for
 imgSolvedDigits = displayNumbers(imgSolvedDigits, solvedNumbers)
 
 #overlay solution
-pts2 = np.float32(biggest)
-pts1 = np.float32([[0,0], [imgW, 0], [0, imgH], [imgW, imgH]])
-matrix = cv2.getPerspectiveTransform(pts1, pts2)
+pts2 = np.float32(biggest)#biggest is the set of 4 points of the sudoku grid
+pts1 = np.float32([[0,0], [imgW, 0], [0, imgH], [imgW, imgH]])#these are the four points were using to display the solved numbers previously
+matrix = cv2.getPerspectiveTransform(pts1, pts2)#transforms the image to fit the given perspective
 imgInvWarpColored = img.copy()
 imgInvWarpColored = cv2.warpPerspective(imgSolvedDigits, matrix, (imgW, imgH)) 
-invPerspective = cv2.addWeighted(imgInvWarpColored, 1, img, .5, 1)
+invPerspective = cv2.addWeighted(imgInvWarpColored, 1, img, .5, 1)#this function is specefically usefull when we want to add two images together, this allows us to overlay the image of the solved numbers on top of the grid
 
         
 #stacking the image

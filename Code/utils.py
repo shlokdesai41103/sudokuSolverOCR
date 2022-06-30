@@ -48,50 +48,52 @@ def biggestContour(contours):
             
 #spliting the image
 def splitBoxes(img):
-    # (h,w) = img.shape[0], img.shape[1]
-    # centerX, centerY = w // 9, h // 9
+    (h,w) = img.shape[0], img.shape[1]
+    centerX, centerY = w // 9, h // 9
     
-    # boxes = []
-    
-    # for i in range(9):
-    #     for j in range(9):
-    #         box = img[centerY*i:centerY*(i+1), centerX*j:centerX*(j+1)]
-    #         boxes.append(box)
-    
-    rows = np.vsplit(img, 9)
     boxes = []
-    for r in rows:
-        cols = np.hsplit(r, 9)
-        for box in cols:
+    
+    for i in range(9):
+        for j in range(9):
+            box = img[centerY*i:centerY*(i+1), centerX*j:centerX*(j+1)]
             boxes.append(box)
+    
+    # rows = np.vsplit(img, 9)
+    # boxes = []
+    # for r in rows:
+    #     cols = np.hsplit(r, 9)
+    #     for box in cols:
+    #         boxes.append(box)
     return boxes
 
 #predicting the number in each box
 def getPrediction(boxes, model):
     result = []
     for image in boxes:
-        img = np.asarray(image)
-        img = img[4:img.shape[0]-4, 4:img.shape[1]-4]
-        img = cv2.resize(img, (28,28))
+        img = np.asarray(image)#turns the img into an array
+        img = img[4:img.shape[0]-4, 4:img.shape[1]-4]#narrows down the size of each img
+        img = cv2.resize(img, (28,28))#resizes it to the size of the imgs the model was trained with
         img = img/255
         img = img.reshape(1,28,28,1)
         predictions = model.predict(img)
-        classIndex = np.argmax(predictions,axis=-1)
-        probabilityValue = np.amax(predictions)
+        classIndex = np.argmax(predictions,axis=-1)#takes the max of the array in the -1 axis
+        probabilityValue = np.amax(predictions)# takes the max of the certainty value
         print(classIndex, probabilityValue)
         if probabilityValue > .8:
-            result.append(classIndex[0])
+            result.append(classIndex[0])#only enters the number into results if the probability of its correctness is above 80%
         else:
             result.append(0)
     return result
 
 def displayNumbers(img, numbers, color=(0,255,0)):
+    #finding the dimensions for the top-left box
     secW = int(img.shape[1]/9)
     secH = int(img.shape[0]/9)
     for x in range(9):
         for y in range(9):
+            #if the value predicted is not 0 then display it on the image
             if numbers[(y*9)+x] != 0 :
-                cv2.putText(img, str(numbers[(y*9)+x]), (x*secW+int(secW/2)-10, int((y+.8)*secH)), cv2.FONT_HERSHEY_COMPLEX, 2, color, 2, cv2.LINE_AA)
+                cv2.putText(img, str(numbers[(y*9)+x]), (x*secW+int(secW/2)-10, int((y+.8)*secH)), cv2.FONT_HERSHEY_COMPLEX, 1, color, 2, cv2.LINE_AA)#displays the text on the image by taking the image, the str we want to write, the coordinates we want to write it at, and the information about the font to use
     return img
             
 def stackImages(imgArr, scale):

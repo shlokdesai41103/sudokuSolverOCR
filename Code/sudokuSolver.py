@@ -48,16 +48,6 @@ def solve(arr):
 
     return False
 def startSolving(arr):
-    # arr = []
-    # print(arr)
-    # for i in range (9):
-    #     col = []
-    #     for j in range (9):
-    #         val = int(input())
-    #         col.append(val)
-    #     arr.append(col)
-    # print(arr)
-
     for i in range (9):
         print(arr[i], " ")
     print("\n")
