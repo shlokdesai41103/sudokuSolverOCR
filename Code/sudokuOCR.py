@@ -1,10 +1,12 @@
 print('Setting Up')
 import os
-from turtle import color
+from tempfile import TemporaryFile
+from turtle import color, width
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import cv2
 import numpy as np
 from utils import *
+import sudokuSolver
 import matplotlib.pyplot as plt
 
 #get image
@@ -42,12 +44,36 @@ imgSolvedDigits = blankImg.copy()
 boxes = splitBoxes(imgWarpColored)
 numbers = getPrediction(boxes, model)
 imgDetectedDigits = displayNumbers(imgDetectedDigits, numbers, color=(255,0,255))
+numbers = np.asarray(numbers)
+posArray = np.where(numbers > 0, 0, 1)
 
+#turning the numbers read from image into a 2d array
+board = np.array_split(numbers, 9)
+print(board[0][0])
+try:
+    sudokuSolver.startSolving(board)
+except:
+    pass
+print(board)
+flatList = []
+for i in board:
+    for j in i:
+        flatList.append(j)
+solvedNumbers = flatList*posArray
+imgSolvedDigits = displayNumbers(imgSolvedDigits, solvedNumbers)
 
+#overlay solution
+pts2 = np.float32(biggest)
+pts1 = np.float32([[0,0], [imgW, 0], [0, imgH], [imgW, imgH]])
+matrix = cv2.getPerspectiveTransform(pts1, pts2)
+imgInvWarpColored = img.copy()
+imgInvWarpColored = cv2.warpPerspective(imgSolvedDigits, matrix, (imgW, imgH)) 
+invPerspective = cv2.addWeighted(imgInvWarpColored, 1, img, .5, 1)
 
+        
 #stacking the image
 imgArr = ([img, imgThreshold, imgContours, imgBigContours],
-          [imgWarpColored, imgDetectedDigits, blankImg, blankImg])
+          [imgDetectedDigits, imgSolvedDigits, imgInvWarpColored, invPerspective])
 stackedImage = stackImages(imgArr, 1)
 
 plt.imshow(stackedImage, cmap = 'gray', interpolation='bicubic')
