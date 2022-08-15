@@ -1,6 +1,12 @@
+import 'dart:convert';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:sudoku_solver_app/take_picture_screen.dart';
+import 'api.dart';
+import 'package:path/path.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:http/http.dart' as http;
 
 void main() async {
   runApp(const MyApp());
@@ -14,33 +20,78 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.deepOrange),
-      home: const RootPage(),
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: HomePage(),
     );
   }
 }
 
-class RootPage extends StatefulWidget {
-  //Screen can be reloaded with something new
-  const RootPage({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  HomePage({Key? key}) : super(key: key);
 
   @override
-  State<RootPage> createState() => _RootPageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _RootPageState extends State<RootPage> {
-  int count = 0;
+class _HomePageState extends State<HomePage> {
+  File? selectedImage;
+  String? message = "";
+
+  uploadImage() async {
+    final request = http.MultipartRequest(
+        "POST", Uri.parse("https://1336-50-100-148-118.ngrok.io/upload"));
+    final headers = {"Content-type": "multipart/form-data"};
+    request.files.add(http.MultipartFile('image',
+        selectedImage!.readAsBytes().asStream(), selectedImage!.lengthSync(),
+        filename: selectedImage!.path.split("/").last));
+    request.headers.addAll(headers);
+    final response = await request.send();
+    http.Response res = await http.Response.fromStream(response);
+    final resJson = jsonDecode(res.body);
+    message = resJson['message'];
+    setState(() {});
+  }
+
+  Future getImage() async {
+    final pickedImage =
+        await ImagePicker().getImage(source: ImageSource.gallery);
+    selectedImage = File(pickedImage!.path);
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Sudoku Solver")),
-      body: const Center(child: Text('Happiness Is.... Sudoku')),
+      appBar: AppBar(
+        title: const Text("Sudoku Solver"),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            selectedImage == null
+                ? const Text("Please pick a Image to upload")
+                : Image.file(selectedImage!),
+            TextButton.icon(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.blue),
+                ),
+                onPressed: uploadImage,
+                icon: const Icon(
+                  Icons.upload_file,
+                  color: Colors.white,
+                ),
+                label: const Text(
+                  "Upload",
+                  style: TextStyle(color: Colors.white),
+                ))
+          ],
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
-          onPressed: () async {
-            await availableCameras().then((value) => Navigator.push(context,
-                MaterialPageRoute(builder: (_) => CameraPage(cameras: value))));
-          },
-          child: const Icon(Icons.camera_alt)),
+        onPressed: getImage,
+        child: const Icon(Icons.add_a_photo),
+      ),
     );
   }
 }
