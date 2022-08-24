@@ -2,7 +2,7 @@ import 'package:http/http.dart' as http;
 import 'numbers.dart';
 
 class Services {
-  static const String url = "https://ba86-50-100-148-118.ngrok.io/upload";
+  static const String url = "https://e861-50-100-148-118.ngrok.io/upload";
 
   static Future<List<Numbers>> getNumbers() async {
     try {

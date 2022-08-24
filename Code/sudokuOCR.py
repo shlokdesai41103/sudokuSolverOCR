@@ -67,21 +67,8 @@ def app_running(path):
     numbers2 = []
     for i in range(len(numbers)):
         numbers2.append(numbers[i].item())
-    print(type(numbers2[3]))    
-    # indices = []
-    # for i in range(1,82):
-    #     indices.append(str(i))
-    # val = []
-    # for i in range(1,82):
-    #     val.append('value')
-
-    # d = dict(zip_longest(indices, val))
-    # print(d)
-    # for i in range(1,82):
-    #     d[str(i)]['value'] = numbers2[i-1]
-    numDict = {'1':{'val': numbers2[0]},'2':{'val': numbers2[1]},'3':{'val': numbers2[2]},'4':{'val': numbers2[3]},'5':{'val': numbers2[4]},'6':{'val': numbers2[5]},'7':{'val': numbers2[6]},'8':{'val': numbers2[7]},'9':{'val': numbers2[8]},'10':{'val': numbers2[9]},'11':{'val': numbers2[10]},'12':{'val': numbers2[11]},'13':{'val': numbers2[12]},'14':{'val': numbers2[13]},'15':{'val': numbers2[14]},'16':{'val': numbers2[15]},'17':{'val': numbers2[16]},'18':{'val': numbers2[17]},'19':{'val': numbers2[18]},'20':{'val': numbers2[19]},'21':{'val': numbers2[20]},'22':{'val': numbers2[21]},'23':{'val': numbers2[22]},'24':{'val': numbers2[23]},'25':{'val': numbers2[24]},'26':{'val': numbers2[25]},'27':{'val': numbers2[26]},'28':{'val': numbers2[27]},'29':{'val': numbers2[28]},'30':{'val': numbers2[29]},'31':{'val': numbers2[30]},'32':{'val': numbers2[31]},'33':{'val': numbers2[32]},'34':{'val': numbers2[33]},'35':{'val': numbers2[34]},'36':{'val': numbers2[35]},'37':{'val': numbers2[36]},'38':{'val': numbers2[37]},'39':{'val': numbers2[38]},'40':{'val': numbers2[39]},'41':{'val': numbers2[40]},'42':{'val': numbers2[41]},'43':{'val': numbers2[42]},'44':{'val': numbers2[43]},'45':{'val': numbers2[44]},'46':{'val': numbers2[45]},'47':{'val': numbers2[46]},'48':{'val': numbers2[47]},'49':{'val': numbers2[48]},'50':{'val': numbers2[49]},'51':{'val': numbers2[50]},'52':{'val': numbers2[51]},'53':{'val': numbers2[52]},'54':{'val': numbers2[53]},'55':{'val': numbers2[54]},'56':{'val': numbers2[55]},'57':{'val': numbers2[56]},'58':{'val': numbers2[57]},'59':{'val': numbers2[58]},'60':{'val': numbers2[59]},'61':{'val': numbers2[60]},'62':{'val': numbers2[61]},'63':{'val': numbers2[62]},'64':{'val': numbers2[63]},'65':{'val': numbers2[64]},'66':{'val': numbers2[65]},'67':{'val': numbers2[66]},'68':{'val': numbers2[67]},'69':{'val': numbers2[68]},'70':{'val': numbers2[69]},'71':{'val': numbers2[70]},'72':{'val': numbers2[71]},'73':{'val': numbers2[72]},'74':{'val': numbers2[73]},'75':{'val': numbers2[74]},'76':{'val': numbers2[75]},'77':{'val': numbers2[76]},'78':{'val': numbers2[77]},'79':{'val': numbers2[78]},'80':{'val': numbers2[79]},'81':{'val': numbers2[80]}}
-    print(numDict)
-    return numDict
+    print(type(numbers2[3])) 
+    return numbers2
 
     def app_running2():
         
