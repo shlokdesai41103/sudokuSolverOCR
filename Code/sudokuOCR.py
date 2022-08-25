@@ -1,6 +1,7 @@
 print('Setting Up')
 import enum
 from itertools import zip_longest
+from msilib.schema import Billboard
 import os
 from tempfile import TemporaryFile
 from turtle import color, width
@@ -70,29 +71,45 @@ def app_running(path):
     print(type(numbers2[3])) 
     return numbers2
 
-    def app_running2():
-        
-        try:
-            sudokuSolver.startSolving(board)
-        except:
-            pass
-        print(board)
-        flatList = []
-        for i in board:
-            for j in i:
-                flatList.append(j)
-        solvedNumbers = flatList*posArray#this creates an array excluding the numbers already present on the given puzzle ##this will later allow us to create an overlay of the numbers we solved for
-        imgSolvedDigits = displayNumbers(imgSolvedDigits, solvedNumbers)
+def app_running2(board2):
+    board3 = []
+    
+    for i in range(9):
+        row = []
+        for j in range(i*9,(i+1)*9):
+            row.append(board2[j])
+        board3.insert(i, row)
+    try:
+        sudokuSolver.startSolving(board3)
+    except:
+        pass
+    board4 = []
+    for i in range(9):
+        for j in range(9):
+            board4.append(board3[i][j])
+    print(board4)
+    return board4
+    flatList = []
+    for i in board:
+        for j in i:
+            flatList.append(j)
+    numbers3 = []
+    for i in range(len(flatList)):
+        numbers3.append(flatList[i].item())
+    print(type(numbers3[3])) 
+    # solvedNumbers = flatList*posArray#this creates an array excluding the numbers already present on the given puzzle ##this will later allow us to create an overlay of the numbers we solved for
+    return numbers3
+    # imgSolvedDigits = displayNumbers(imgSolvedDigits, solvedNumbers)
 
-        #overlay solution
-        pts2 = np.float32(biggest)#biggest is the set of 4 points of the sudoku grid
-        pts1 = np.float32([[0,0], [imgW, 0], [0, imgH], [imgW, imgH]])#these are the four points were using to display the solved numbers previously
-        matrix = cv2.getPerspectiveTransform(pts1, pts2)#transforms the image to fit the given perspective
-        imgInvWarpColored = img.copy()
-        imgInvWarpColored = cv2.warpPerspective(imgSolvedDigits, matrix, (imgW, imgH)) 
-        invPerspective = cv2.addWeighted(imgInvWarpColored, 1, img, .5, 1)#this function is specefically usefull when we want to add two images together, this allows us to overlay the image of the solved numbers on top of the grid
+    # #overlay solution
+    # pts2 = np.float32(biggest)#biggest is the set of 4 points of the sudoku grid
+    # pts1 = np.float32([[0,0], [imgW, 0], [0, imgH], [imgW, imgH]])#these are the four points were using to display the solved numbers previously
+    # matrix = cv2.getPerspectiveTransform(pts1, pts2)#transforms the image to fit the given perspective
+    # imgInvWarpColored = img.copy()
+    # imgInvWarpColored = cv2.warpPerspective(imgSolvedDigits, matrix, (imgW, imgH)) 
+    # invPerspective = cv2.addWeighted(imgInvWarpColored, 1, img, .5, 1)#this function is specefically usefull when we want to add two images together, this allows us to overlay the image of the solved numbers on top of the grid
 
-            
+             
 #stacking the image
 # imgArr = ([img, imgThreshold, imgContours, imgBigContours],
 #         [imgDetectedDigits, imgSolvedDigits, imgInvWarpColored, invPerspective])
