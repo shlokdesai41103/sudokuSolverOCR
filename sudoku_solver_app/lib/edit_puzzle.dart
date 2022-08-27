@@ -2,8 +2,6 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart';
-import 'numbers.dart';
-import 'Services.dart';
 import 'package:http/http.dart' as http;
 
 class EditPuzzle extends StatefulWidget {
@@ -96,6 +94,88 @@ class _EditPuzzleState extends State<EditPuzzle> {
   String number80 = '';
   String number81 = '';
 
+  String n1 = '';
+  String n2 = '';
+  String n3 = '';
+  String n4 = '';
+  String n5 = '';
+  String n6 = '';
+  String n7 = '';
+  String n8 = '';
+  String n9 = '';
+  String n10 = '';
+  String n11 = '';
+  String n12 = '';
+  String n13 = '';
+  String n14 = '';
+  String n15 = '';
+  String n16 = '';
+  String n17 = '';
+  String n18 = '';
+  String n19 = '';
+  String n20 = '';
+  String n21 = '';
+  String n22 = '';
+  String n23 = '';
+  String n24 = '';
+  String n25 = '';
+  String n26 = '';
+  String n27 = '';
+  String n28 = '';
+  String n29 = '';
+  String n30 = '';
+  String n31 = '';
+  String n32 = '';
+  String n33 = '';
+  String n34 = '';
+  String n35 = '';
+  String n36 = '';
+  String n37 = '';
+  String n38 = '';
+  String n39 = '';
+  String n40 = '';
+  String n41 = '';
+  String n42 = '';
+  String n43 = '';
+  String n44 = '';
+  String n45 = '';
+  String n46 = '';
+  String n47 = '';
+  String n48 = '';
+  String n49 = '';
+  String n50 = '';
+  String n51 = '';
+  String n52 = '';
+  String n53 = '';
+  String n54 = '';
+  String n55 = '';
+  String n56 = '';
+  String n57 = '';
+  String n58 = '';
+  String n59 = '';
+  String n60 = '';
+  String n61 = '';
+  String n62 = '';
+  String n63 = '';
+  String n64 = '';
+  String n65 = '';
+  String n66 = '';
+  String n67 = '';
+  String n68 = '';
+  String n69 = '';
+  String n70 = '';
+  String n71 = '';
+  String n72 = '';
+  String n73 = '';
+  String n74 = '';
+  String n75 = '';
+  String n76 = '';
+  String n77 = '';
+  String n78 = '';
+  String n79 = '';
+  String n80 = '';
+  String n81 = '';
+
   TextEditingController ctrl1 = TextEditingController();
   TextEditingController ctrl2 = TextEditingController();
   TextEditingController ctrl3 = TextEditingController();
@@ -179,7 +259,7 @@ class _EditPuzzleState extends State<EditPuzzle> {
   TextEditingController ctrl81 = TextEditingController();
 
   String setNumber(value, text) {
-    if (text == "") {
+    if (text == '') {
       return value;
     } else {
       return text;
@@ -188,6 +268,7 @@ class _EditPuzzleState extends State<EditPuzzle> {
 
   // @override
   // void initState() {
+  //   ctrl1 = TextEditingController(text: number);
   //   super.initState();
   // }
 
@@ -294,6 +375,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
             mainAxisSpacing: 5,
             children: [
               TextField(
+                onChanged: (val) {
+                  n1 = val;
+                },
                 controller: ctrl1..text = number,
                 style: const TextStyle(
                   fontSize: 24,
@@ -305,13 +389,12 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 decoration: const InputDecoration(
                   counterText: "",
                 ),
-                // onChanged: (value) {
-                //   ctrl1.text = value;
-                // },
               ),
               TextField(
+                onChanged: (val) {
+                  n2 = val;
+                },
                 controller: ctrl2..text = number2,
-                onChanged: (text) => {number2 = text},
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
@@ -320,6 +403,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 decoration: const InputDecoration(counterText: ""),
               ),
               TextField(
+                onChanged: (val) {
+                  n3 = val;
+                },
                 controller: ctrl3..text = number3,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -331,6 +417,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n4 = val;
+                },
                 controller: ctrl4..text = number4,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -340,6 +429,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 decoration: const InputDecoration(counterText: ""),
               ),
               TextField(
+                onChanged: (val) {
+                  n5 = val;
+                },
                 controller: ctrl5..text = number5,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -351,6 +443,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n6 = val;
+                },
                 controller: ctrl6..text = number6,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -362,6 +457,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n7 = val;
+                },
                 controller: ctrl7..text = number7,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -373,6 +471,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n8 = val;
+                },
                 controller: ctrl8..text = number8,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -382,6 +483,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 decoration: const InputDecoration(counterText: ""),
               ),
               TextField(
+                onChanged: (val) {
+                  n9 = val;
+                },
                 controller: ctrl9..text = number9,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -393,6 +497,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n10 = val;
+                },
                 controller: ctrl10..text = number10,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -404,6 +511,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n11 = val;
+                },
                 controller: ctrl11..text = number11,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -413,6 +523,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 decoration: const InputDecoration(counterText: ""),
               ),
               TextField(
+                onChanged: (val) {
+                  n12 = val;
+                },
                 controller: ctrl12..text = number12,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -424,6 +537,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n13 = val;
+                },
                 controller: ctrl13..text = number13,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -435,6 +551,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n14 = val;
+                },
                 controller: ctrl14..text = number14,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -446,6 +565,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n15 = val;
+                },
                 controller: ctrl15..text = number15,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -457,6 +579,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n16 = val;
+                },
                 controller: ctrl16..text = number16,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -468,6 +593,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n17 = val;
+                },
                 controller: ctrl17..text = number17,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -479,6 +607,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n18 = val;
+                },
                 controller: ctrl18..text = number18,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -490,6 +621,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n19 = val;
+                },
                 controller: ctrl19..text = number19,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -501,6 +635,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n20 = val;
+                },
                 controller: ctrl20..text = number20,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -512,6 +649,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n21 = val;
+                },
                 controller: ctrl21..text = number21,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -523,6 +663,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n22 = val;
+                },
                 controller: ctrl22..text = number22,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -534,6 +677,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n23 = val;
+                },
                 controller: ctrl23..text = number23,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -545,6 +691,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n24 = val;
+                },
                 controller: ctrl24..text = number24,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -556,6 +705,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n25 = val;
+                },
                 controller: ctrl25..text = number25,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -567,6 +719,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n26 = val;
+                },
                 controller: ctrl26..text = number26,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -578,6 +733,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n27 = val;
+                },
                 controller: ctrl27..text = number27,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -589,6 +747,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n28 = val;
+                },
                 controller: ctrl28..text = number28,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -600,6 +761,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n29 = val;
+                },
                 controller: ctrl29..text = number29,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -611,6 +775,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n30 = val;
+                },
                 controller: ctrl30..text = number30,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -622,6 +789,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n31 = val;
+                },
                 controller: ctrl31..text = number31,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -633,6 +803,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n32 = val;
+                },
                 controller: ctrl32..text = number32,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -644,6 +817,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n33 = val;
+                },
                 controller: ctrl33..text = number33,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -655,6 +831,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n34 = val;
+                },
                 controller: ctrl34..text = number34,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -666,6 +845,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n35 = val;
+                },
                 controller: ctrl35..text = number35,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -677,6 +859,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n36 = val;
+                },
                 controller: ctrl36..text = number36,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -688,6 +873,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n37 = val;
+                },
                 controller: ctrl37..text = number37,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -699,6 +887,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n38 = val;
+                },
                 controller: ctrl38..text = number38,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -710,6 +901,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n39 = val;
+                },
                 controller: ctrl39..text = number39,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -721,6 +915,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n40 = val;
+                },
                 controller: ctrl40..text = number40,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -732,6 +929,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n41 = val;
+                },
                 controller: ctrl41..text = number41,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -743,6 +943,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n42 = val;
+                },
                 controller: ctrl42..text = number42,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -754,6 +957,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n43 = val;
+                },
                 controller: ctrl43..text = number43,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -765,6 +971,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n44 = val;
+                },
                 controller: ctrl44..text = number44,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -776,6 +985,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n45 = val;
+                },
                 controller: ctrl45..text = number45,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -787,6 +999,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n46 = val;
+                },
                 controller: ctrl46..text = number46,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -798,6 +1013,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n47 = val;
+                },
                 controller: ctrl47..text = number47,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -809,6 +1027,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n48 = val;
+                },
                 controller: ctrl48..text = number48,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -820,6 +1041,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n49 = val;
+                },
                 controller: ctrl49..text = number49,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -831,6 +1055,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n50 = val;
+                },
                 controller: ctrl50..text = number50,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -842,6 +1069,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n51 = val;
+                },
                 controller: ctrl51..text = number51,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -853,6 +1083,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n52 = val;
+                },
                 controller: ctrl52..text = number52,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -864,6 +1097,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n53 = val;
+                },
                 controller: ctrl53..text = number53,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -875,6 +1111,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n54 = val;
+                },
                 controller: ctrl54..text = number54,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -886,6 +1125,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n55 = val;
+                },
                 controller: ctrl55..text = number55,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -897,6 +1139,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n56 = val;
+                },
                 controller: ctrl56..text = number56,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -908,6 +1153,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n57 = val;
+                },
                 controller: ctrl57..text = number57,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -919,6 +1167,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n58 = val;
+                },
                 controller: ctrl58..text = number58,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -930,6 +1181,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n59 = val;
+                },
                 controller: ctrl59..text = number59,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -941,6 +1195,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n60 = val;
+                },
                 controller: ctrl60..text = number60,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -952,6 +1209,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n61 = val;
+                },
                 controller: ctrl61..text = number61,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -963,6 +1223,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n62 = val;
+                },
                 controller: ctrl62..text = number62,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -974,6 +1237,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n63 = val;
+                },
                 controller: ctrl63..text = number63,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -985,6 +1251,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n64 = val;
+                },
                 controller: ctrl64..text = number64,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -996,6 +1265,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n65 = val;
+                },
                 controller: ctrl65..text = number65,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -1007,6 +1279,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n66 = val;
+                },
                 controller: ctrl66..text = number66,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -1018,6 +1293,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n67 = val;
+                },
                 controller: ctrl67..text = number67,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -1029,6 +1307,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n68 = val;
+                },
                 controller: ctrl68..text = number68,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -1040,6 +1321,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n69 = val;
+                },
                 controller: ctrl69..text = number69,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -1051,6 +1335,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n70 = val;
+                },
                 controller: ctrl70..text = number70,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -1062,6 +1349,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n71 = val;
+                },
                 controller: ctrl71..text = number71,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -1073,6 +1363,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n72 = val;
+                },
                 controller: ctrl72..text = number72,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -1084,6 +1377,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n73 = val;
+                },
                 controller: ctrl73..text = number73,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -1095,6 +1391,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n74 = val;
+                },
                 controller: ctrl74..text = number74,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -1106,6 +1405,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n75 = val;
+                },
                 controller: ctrl75..text = number75,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -1117,6 +1419,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n76 = val;
+                },
                 controller: ctrl76..text = number76,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -1128,6 +1433,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n77 = val;
+                },
                 controller: ctrl77..text = number77,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -1139,6 +1447,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n78 = val;
+                },
                 controller: ctrl78..text = number78,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -1150,6 +1461,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n79 = val;
+                },
                 controller: ctrl79..text = number79,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -1161,6 +1475,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n80 = val;
+                },
                 controller: ctrl80..text = number80,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -1172,6 +1489,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                 ),
               ),
               TextField(
+                onChanged: (val) {
+                  n81 = val;
+                },
                 controller: ctrl81..text = number81,
                 style:
                     const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -1193,7 +1513,7 @@ class _EditPuzzleState extends State<EditPuzzle> {
               child: FloatingActionButton(
                 onPressed: () async {
                   final response = await http.get(
-                      Uri.parse("https://296d-50-100-148-118.ngrok.io/upload"));
+                      Uri.parse("https://769e-50-100-148-118.ngrok.io/upload"));
                   final decoded =
                       json.decode(response.body) as Map<String, dynamic>;
                   setState(() {
@@ -1287,89 +1607,92 @@ class _EditPuzzleState extends State<EditPuzzle> {
               margin: const EdgeInsets.all(10),
               child: FloatingActionButton(
                 onPressed: () async {
-                  number = ctrl1.text;
-                  number2 = ctrl2.text;
-                  number3 = ctrl3.text;
-                  number4 = ctrl4.text;
-                  number5 = ctrl5.text;
-                  number6 = ctrl6.text;
-                  number7 = ctrl7.text;
-                  number8 = ctrl8.text;
-                  number9 = ctrl9.text;
-                  number10 = ctrl10.text;
-                  number11 = ctrl11.text;
-                  number12 = ctrl12.text;
-                  number13 = ctrl13.text;
-                  number14 = ctrl14.text;
-                  number15 = ctrl15.text;
-                  number16 = ctrl16.text;
-                  number17 = ctrl17.text;
-                  number18 = ctrl18.text;
-                  number19 = ctrl19.text;
-                  number20 = ctrl20.text;
-                  number21 = ctrl21.text;
-                  number22 = ctrl22.text;
-                  number23 = ctrl23.text;
-                  number24 = ctrl24.text;
-                  number25 = ctrl25.text;
-                  number26 = ctrl26.text;
-                  number27 = ctrl27.text;
-                  number28 = ctrl28.text;
-                  number29 = ctrl29.text;
-                  number30 = ctrl30.text;
-                  number31 = ctrl31.text;
-                  number32 = ctrl32.text;
-                  number33 = ctrl33.text;
-                  number34 = ctrl34.text;
-                  number35 = ctrl35.text;
-                  number36 = ctrl36.text;
-                  number37 = ctrl37.text;
-                  number38 = ctrl38.text;
-                  number39 = ctrl39.text;
-                  number40 = ctrl40.text;
-                  number41 = ctrl41.text;
-                  number42 = ctrl42.text;
-                  number43 = ctrl43.text;
-                  number44 = ctrl44.text;
-                  number45 = ctrl45.text;
-                  number46 = ctrl46.text;
-                  number47 = ctrl47.text;
-                  number48 = ctrl48.text;
-                  number49 = ctrl49.text;
-                  number50 = ctrl50.text;
-                  number51 = ctrl51.text;
-                  number52 = ctrl52.text;
-                  number53 = ctrl53.text;
-                  number54 = ctrl54.text;
-                  number55 = ctrl55.text;
-                  number56 = ctrl56.text;
-                  number57 = ctrl57.text;
-                  number58 = ctrl58.text;
-                  number59 = ctrl59.text;
-                  number60 = ctrl60.text;
-                  number61 = ctrl61.text;
-                  number62 = ctrl62.text;
-                  number63 = ctrl63.text;
-                  number64 = ctrl64.text;
-                  number65 = ctrl65.text;
-                  number66 = ctrl66.text;
-                  number67 = ctrl67.text;
-                  number68 = ctrl68.text;
-                  number69 = ctrl69.text;
-                  number70 = ctrl70.text;
-                  number71 = ctrl71.text;
-                  number72 = ctrl72.text;
-                  number73 = ctrl73.text;
-                  number74 = ctrl74.text;
-                  number75 = ctrl75.text;
-                  number76 = ctrl76.text;
-                  number77 = ctrl77.text;
-                  number78 = ctrl78.text;
-                  number79 = ctrl79.text;
-                  number80 = ctrl80.text;
-                  number81 = ctrl81.text;
+                  setState(() {
+                    number = setNumber(number, n1);
+                    number2 = setNumber(number2, n2);
+                    number3 = setNumber(number3, n3);
+                    number4 = setNumber(number4, n4);
+                    number5 = setNumber(number5, n5);
+                    number6 = setNumber(number6, n6);
+                    number7 = setNumber(number7, n7);
+                    number8 = setNumber(number8, n8);
+                    number9 = setNumber(number9, n9);
+                    number10 = setNumber(number10, n10);
+                    number11 = setNumber(number11, n11);
+                    number12 = setNumber(number12, n12);
+                    number13 = setNumber(number13, n13);
+                    number14 = setNumber(number14, n14);
+                    number15 = setNumber(number15, n15);
+                    number16 = setNumber(number16, n16);
+                    number17 = setNumber(number17, n17);
+                    number18 = setNumber(number18, n18);
+                    number19 = setNumber(number19, n19);
+                    number20 = setNumber(number20, n20);
+                    number21 = setNumber(number21, n21);
+                    number22 = setNumber(number22, n22);
+                    number23 = setNumber(number23, n23);
+                    number24 = setNumber(number24, n24);
+                    number25 = setNumber(number25, n25);
+                    number26 = setNumber(number26, n26);
+                    number27 = setNumber(number27, n27);
+                    number28 = setNumber(number28, n28);
+                    number29 = setNumber(number29, n29);
+                    number30 = setNumber(number30, n30);
+                    number31 = setNumber(number31, n31);
+                    number32 = setNumber(number32, n32);
+                    number33 = setNumber(number33, n33);
+                    number34 = setNumber(number34, n34);
+                    number35 = setNumber(number35, n35);
+                    number36 = setNumber(number36, n36);
+                    number37 = setNumber(number37, n37);
+                    number38 = setNumber(number38, n38);
+                    number39 = setNumber(number39, n39);
+                    number40 = setNumber(number40, n40);
+                    number41 = setNumber(number41, n41);
+                    number42 = setNumber(number42, n42);
+                    number43 = setNumber(number43, n43);
+                    number44 = setNumber(number44, n44);
+                    number45 = setNumber(number45, n45);
+                    number46 = setNumber(number46, n46);
+                    number47 = setNumber(number47, n47);
+                    number48 = setNumber(number48, n48);
+                    number49 = setNumber(number49, n49);
+                    number50 = setNumber(number50, n50);
+                    number51 = setNumber(number51, n51);
+                    number52 = setNumber(number52, n52);
+                    number53 = setNumber(number53, n53);
+                    number54 = setNumber(number54, n54);
+                    number55 = setNumber(number55, n55);
+                    number56 = setNumber(number56, n56);
+                    number57 = setNumber(number57, n57);
+                    number58 = setNumber(number58, n58);
+                    number59 = setNumber(number59, n59);
+                    number60 = setNumber(number60, n60);
+                    number61 = setNumber(number61, n61);
+                    number62 = setNumber(number62, n62);
+                    number63 = setNumber(number63, n63);
+                    number64 = setNumber(number64, n64);
+                    number65 = setNumber(number65, n65);
+                    number66 = setNumber(number66, n66);
+                    number67 = setNumber(number67, n67);
+                    number68 = setNumber(number68, n68);
+                    number69 = setNumber(number69, n69);
+                    number70 = setNumber(number70, n70);
+                    number71 = setNumber(number71, n71);
+                    number72 = setNumber(number72, n72);
+                    number73 = setNumber(number73, n73);
+                    number74 = setNumber(number74, n74);
+                    number75 = setNumber(number75, n75);
+                    number76 = setNumber(number76, n76);
+                    number77 = setNumber(number77, n77);
+                    number78 = setNumber(number78, n78);
+                    number79 = setNumber(number79, n79);
+                    number80 = setNumber(number80, n80);
+                    number81 = setNumber(number81, n81);
+                  });
+
                   final response = await http.post(
-                      Uri.parse('https://296d-50-100-148-118.ngrok.io/upload2'),
+                      Uri.parse('https://769e-50-100-148-118.ngrok.io/upload2'),
                       body: json.encode({
                         'val1': int.parse(number),
                         'val2': int.parse(number2),
@@ -1453,8 +1776,9 @@ class _EditPuzzleState extends State<EditPuzzle> {
                         'val80': int.parse(number80),
                         'val81': int.parse(number81)
                       }));
+
                   final receive = await http.get(Uri.parse(
-                      'https://296d-50-100-148-118.ngrok.io/upload2'));
+                      'https://769e-50-100-148-118.ngrok.io/upload2'));
                   final decoded =
                       json.decode(receive.body) as Map<String, dynamic>;
                   setState(() {
