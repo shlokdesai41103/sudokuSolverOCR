@@ -80,15 +80,18 @@ def app_running2(board2):
             row.append(board2[j])
         board3.insert(i, row)
     try:
-        sudokuSolver.startSolving(board3)
+        solved = sudokuSolver.startSolving(board3)
     except:
         pass
-    board4 = []
-    for i in range(9):
-        for j in range(9):
-            board4.append(board3[i][j])
-    print(board4)
-    return board4
+    if solved:
+        board4 = []
+        for i in range(9):
+            for j in range(9):
+                board4.append(board3[i][j])
+        print(board4)
+        return board4, True
+    else:
+        return board2, False
     flatList = []
     for i in board:
         for j in i:

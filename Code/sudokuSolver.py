@@ -56,5 +56,7 @@ def startSolving(arr):
     if(solvable == True):
         for i in range (9):
             print(arr[i])
+        return True
     elif(solvable == False):
         print("This puzzle cannot be solved.")
+        return False
