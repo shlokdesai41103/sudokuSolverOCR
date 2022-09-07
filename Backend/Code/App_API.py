@@ -25,8 +25,8 @@ def upload():
     if(request.method == "POST"):
         imagefile = request.files['image']
         filename = werkzeug.utils.secure_filename(imagefile.filename)
-        imagefile.save("./Code/uploadedimages/"+filename)
-        board1 = app_running("./Code/uploadedimages/"+filename)
+        imagefile.save("./Backend/Code/uploadedimages/"+filename)
+        board1 = app_running("./Backend/Code/uploadedimages/"+filename)
         return jsonify({
             "message": "Image Uploaded Successfully"
         })

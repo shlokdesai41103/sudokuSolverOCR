@@ -14,7 +14,7 @@ def preProcess(img):
 
 #loading the recognition model
 def initializePredictionModel():
-    model = load_model('OCR Model\Code\myModel.h5')
+    model = load_model('Backend\OCR Model\Code\myModel.h5')
     return model
 
 #reorder points for warp perspective
